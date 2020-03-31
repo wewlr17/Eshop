@@ -49,9 +49,9 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
                 <div style="margin-left: 200px">
                   <h2>Article</h2>
                   
-                  <p>{{$article->description_article}}<br> Voici la presentation de l'article.......</p>
-                
-                  <dl style="margin-top: 50px">
+                  <p>{{$article->description_article}}<br><hr><p>
+                  <p> Voici la presentation de l'article :<br><p>
+                  <dl style="margin-left: 300px; margin-top: 0px">
                     <li>
                     Materiel : .....
                     </li>

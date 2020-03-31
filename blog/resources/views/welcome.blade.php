@@ -2,9 +2,9 @@
 @section('title','Homepage')
 @section('content')
 <div class="container" style="width: 50%">
-  <div class="jumbotron" id="tc_jumbotron" style="background-color: grey">
+  <div class="jumbotron" id="tc_jumbotron" style="background-color: ">
     <div class="card-body">
-      <div class="text-center" style=""> 
+      <div class="text-center" style="color :white"> 
            <h1>Bienvenue</h1> 
            <div class="footer_sosial">
               <a href=""><i style="color: white" class="fa fa-facebook"></i></a>
