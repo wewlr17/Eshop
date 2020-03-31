@@ -52,17 +52,17 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
                   <h5 class="card-title">Card title</h5>
                   <img class="card-img-top" src="{{asset('images/produit5.png')}}" alt="Card image cap"></a>
                 </div>
-                <div class="col-sm-3" style="wmargin-bottom: 50px;">
+                <div class="col-sm-3" style="margin-bottom: 50px;">
                   <a href="#" style="width:100%" class="btn btn-primary">
                   <h5 class="card-title">Card title</h5>
                   <img class="card-img-top" src="{{asset('images/suit.png')}}" alt="Card image cap"></a>
                 </div>
-                <div class="col-sm-3" style="wmargin-bottom: 50px;">
+                <div class="col-sm-3" style="margin-bottom: 50px;">
                   <a href="#" style="width:100%" class="btn btn-primary">
                   <h5 class="card-title">Card title</h5>
                   <img class="card-img-top" src="{{asset('images/suit.png')}}" alt="Card image cap"></a>
                 </div>
-                <div class="col-sm-3" style="wmargin-bottom: 50px;">
+                <div class="col-sm-3" style="margin-bottom: 50px;">
                   <a href="#" style="width:100%" class="btn btn-primary">
                   <h5 class="card-title">Card title</h5>
                   <img class="card-img-top" src="{{asset('images/suit.png')}}" alt="Card image cap"></a>

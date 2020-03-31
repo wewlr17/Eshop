@@ -1,0 +1,29 @@
+
+Functionnalitées :
+
+
+- Utilisateur non inscrit :
+
+page =  . index 
+        . collection
+        . show
+
+- inscrit :
+
+        . index
+        . collection
+        . show => commentaire
+        . profil => image + pseudo + email + mdp + adresse/ville/numero
+        . ajouter article(s) au panier
+
+- Admin :
+    modifier bdd :
+        - collection =>  tous les article ( image + description )
+                        . ajouter
+                        . supprimer
+                        . modifier
+
+        . supprimer Utilisateur 
+    
+
+

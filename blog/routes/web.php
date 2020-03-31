@@ -16,13 +16,12 @@ Route::get('/', function () {
 });
 
 
-
 Route::get('/admin', 'AdminController@index')->name('admin_home')->middleware('auth', 'role:Admin');
-Route::get('/moderateur', 'ModerateurController@index')->name('moderateur_home')->middleware('auth', 'role:Moderateur');;
+Route::get('/moderateur', 'ModerateurController@index')->name('moderateur_home')->middleware('auth', 'role:Moderateur');
 Route::get('/autres', 'AutresController@index')->name('autres_home')->middleware('auth', 'role:Autres');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/forum', 'CollectionController');
-
+Route::get('/forum/{slug}', 'CollectionController@index')->name('home');
