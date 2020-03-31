@@ -28,10 +28,11 @@ class CollectionController extends Controller
     {
         return view('forum.index');
     }
-    public function show($slug)
+    public function show($id)
     {
-        $article = DB::select('select * from article where id = ?', [$slug]);
-            
-        return view('forum.show', compact('article'));
+        //$article = Article::where('id', $slug);
+        //$article = DB::select('select * from article where id = ?', [$slug]);
+
+        return view('forum.show', ['article' => Article::findOrFail($id)]);
     }
 }

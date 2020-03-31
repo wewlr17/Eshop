@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS commentaire
     PRIMARY KEY (commentaire_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS article
+CREATE TABLE IF NOT EXISTS articles
 (
     id MEDIUMINT NOT NULL AUTO_INCREMENT,
     title VARCHAR(100),
@@ -32,10 +32,11 @@ CREATE TABLE IF NOT EXISTS article
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO article (title, img_article, description_article, prix)
- VALUES ('Article titre', '/image/article.png', 'Description.............', '10' ),
- ('Article 2', '/image/article.png', 'Description.............', '20' ),
- ('Article 3', '/image/article.png', 'Description.............', '30' );
+INSERT INTO articles (title, img_article, description_article, prix)
+ VALUES ('Article titre', '/image_article/article.png', 'Description.............', '10' ),
+ ('Article 2', '/image_article/article2.png', 'Description.............', '20' ),
+ ('Article 3', '/image_article/article3.png', 'Description.............', '30' ),
+ ('Costume', '/image_article/suit.png', 'Description.............', '30' );
 
 
 CREATE TABLE categorie

@@ -14,8 +14,8 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
 <div class="container animated fadeInLeft">
   <div class="jumbotron" id="tc_jumbotron">
         <div class="text-center"> 
-          <h1 style="color: white; margin-bottom: -60px; margin-top: -50px ;font-size: 2.5rem;"><br>Nouvelle</h1> 
-          <h2 style="color: white    ;font-size: 3.5rem;"><br>Collection</h2> 
+          <h1 style="color: white; margin-bottom: -60px; margin-top: -50px ;font-size: 2.5rem;"><br>{{$article->title}}</h1> 
+          <h2 style="color: white    ;font-size: 3.5rem;"><br>{{$article->prix}} €</h2> 
         <p></p>  
           </div>
       </div> 
@@ -43,13 +43,13 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
                @endif
                <div class="row" style="" >
                 <div class="" style="margin-bottom: 50px; width: 300px; margin-left: 50px">
-                  <img class="card-img-top" src="{{asset(.$article->img_article)}}" alt="Card image cap"></a>
+                  <img class="card-img-top" src="{{$article->img_article}}" alt="Card image cap"></a>
                 </div>
 
                 <div style="margin-left: 200px">
                   <h2>Article</h2>
                   
-                  <p>Description, voici la presentation de l'article.......</p>
+                  <p>{{$article->description_article}}<br> Voici la presentation de l'article.......</p>
                 
                   <dl style="margin-top: 50px">
                     <li>
