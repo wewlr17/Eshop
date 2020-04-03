@@ -15,7 +15,7 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
   <div class="jumbotron" id="tc_jumbotron">
         <div class="text-center"> 
           <h1 style="color: white; margin-bottom: -60px; margin-top: -50px ;font-size: 2.5rem;"><br>{{$article->title}}</h1> 
-          <h2 style="color: white    ;font-size: 3.5rem;"><br>{{$article->prix}} €</h2> 
+          <h2 style="color: white    ;font-size: 3.5rem;"><br></h2> 
         <p></p>  
           </div>
       </div> 
@@ -48,7 +48,8 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
 
                 <div style="margin-left: 200px">
                   <h2>Article</h2>
-                  
+                  <p style="float: right; margin-top: -55px; margin-right: 30px; font-size: 2.5rem;">{{$article->prix}} €<p>
+                  <hr>
                   <p>{{$article->description_article}}<br><hr><p>
                   <p> Voici la presentation de l'article :<br><p>
                   <dl style="margin-left: 300px; margin-top: 0px">
