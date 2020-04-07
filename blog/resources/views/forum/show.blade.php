@@ -54,21 +54,21 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
                   <p> Voici la presentation de l'article :<br><p>
                   <dl style="margin-left: 300px; margin-top: 0px">
                     <li>
-                    Materiel : .....
+                    Materiel : {{$article->materiel}}
                     </li>
                     <li>
-                    Marque : .... 
+                    Marque : {{$article->marque}} 
                     </li>
 
                     </li>
                     <li>
-                    Couleur : .....
+                    Couleur : {{$article->couleur}}
                     </li>
                     <li>
-                    Taille : .....
+                    Taille : {{$article->taille}}
                     </li>
                     <li>
-                    Livraison : ....
+                    Livraison : {{$article->livraison}}
                     </li>
                   
                   

@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS utilisateur
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO utilisateur (pseudo, email, motdepasse, img_profile, role_user )
- VALUES ('Pseudo', 'pseudo@mail.fr', 'mdp' ,'/image/profile1.png', 'user' );
+ VALUES ('Pseudo', 'pseudo@mail.fr', 'mdp' ,'/image/profile1.png', 'user' ),
+ ('Root', 'chezmoitest@mail.fr', 'mdp' ,'/image/profile1.png', 'admin');
 
 CREATE TABLE IF NOT EXISTS commentaire
 (
@@ -29,14 +30,19 @@ CREATE TABLE IF NOT EXISTS articles
     img_article VARCHAR(255),
     description_article VARCHAR(255),
     prix INT,
+    materiel VARCHAR(100),
+    marque VARCHAR(100),
+    couleur VARCHAR(100),
+    taille VARCHAR(100),
+    livraison VARCHAR(100),
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO articles (title, img_article, description_article, prix)
- VALUES ('Article titre', '/image_article/article.png', 'Description.............', '10' ),
- ('Article 2', '/image_article/article2.png', 'Description.............', '20' ),
- ('Article 3', '/image_article/article3.png', 'Description.............', '30' ),
- ('Costume', '/image_article/suit.png', 'Description.............', '30' );
+INSERT INTO articles (title, img_article, description_article, prix, materiel, marque, couleur, taille, livraison)
+ VALUES ('Article titre', '/image_article/article.png', 'Description.............', '10', '100% coton', 'Tommy', 'Noir Blanc', '1m81', 'Colissimo/...'),
+ ('Article 2', '/image_article/article2.png', 'Description.............', '20', 'BIO', 'MARQUE', 'COULEUR', 'TAILLE', 'LIVRAISON' ),
+ ('Article 3', '/image_article/article3.png', 'Description.............', '30', '..', '..', '..', '...', '...' ),
+ ('Costume', '/image_article/suit.png', 'Description.............', '30', '..', '..', '..', '...', '...' );
 
 
 CREATE TABLE categorie

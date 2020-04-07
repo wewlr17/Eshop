@@ -26,7 +26,8 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        return view('forum.index');
+        $forum = Article::All();
+        return view('forum.index', ['articles' => $forum]);
     }
     public function show($id)
     {

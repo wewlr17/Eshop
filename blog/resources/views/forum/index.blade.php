@@ -10,7 +10,7 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
 ?>
 
 <div class="container animated fadeInLeft">
-  <div class="jumbotron" id="tc_jumbotron" style="background-color: grey">
+  <div class="jumbotron" id="tc_jumbotron">
         <div class="text-center"> 
           <h1 style="color: white; margin-bottom: -60px; margin-top: -50px ;font-size: 2.5rem;"><br>Nouvelle</h1> 
           <h2 style="color: white    ;font-size: 3.5rem;"><br>Collection</h2> 
@@ -37,47 +37,13 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
               <div style="padding-right: 0;"><br>
                @endif
                <div class="row" style="" >
+                @foreach($articles as $article)
                 <div class="col-sm-3" style="margin-bottom: 50px;">
-                  <a href="/forum/1" style="width:100%" class="btn btn-primary">
-                  <h5 class="card-title">Card title</h5>
-                  <img class="card-img-top" src="{{asset('images/produit3.png')}}" alt="Card image cap"></a>
+                  <a href="/forum/{{$article->id}}" style="width:100%" class="btn btn-primary">
+                  <h5 class="card-title">{{$article->title}}</h5>
+                  <img class="card-img-top" src="{{asset($article->img_article)}}" alt="{{$article->title}}"></a>
                 </div>
-                <div class="col-sm-3" style="margin-bottom: 50px;">
-                  <a href="#" style="width:100%" class="btn btn-primary">
-                  <h5 class="card-title">Card title</h5>
-                  <img class="card-img-top" src="{{asset('images/produit4.png')}}" alt="Card image cap"></a>
-                </div>
-                <div class="col-sm-3" style="margin-bottom: 50px; ">
-                  <a href="#" style="width:100%" class="btn btn-primary">
-                  <h5 class="card-title">Card title</h5>
-                  <img class="card-img-top" src="{{asset('images/produit5.png')}}" alt="Card image cap"></a>
-                </div>
-                <div class="col-sm-3" style="margin-bottom: 50px;">
-                  <a href="#" style="width:100%" class="btn btn-primary">
-                  <h5 class="card-title">Card title</h5>
-                  <img class="card-img-top" src="{{asset('images/suit.png')}}" alt="Card image cap"></a>
-                </div>
-                <div class="col-sm-3" style="margin-bottom: 50px;">
-                  <a href="#" style="width:100%" class="btn btn-primary">
-                  <h5 class="card-title">Card title</h5>
-                  <img class="card-img-top" src="{{asset('images/suit.png')}}" alt="Card image cap"></a>
-                </div>
-                <div class="col-sm-3" style="margin-bottom: 50px;">
-                  <a href="#" style="width:100%" class="btn btn-primary">
-                  <h5 class="card-title">Card title</h5>
-                  <img class="card-img-top" src="{{asset('images/suit.png')}}" alt="Card image cap"></a>
-                </div>
-                <div class="col-sm-3" style="margin-bottom: 50px;">
-                  <a href="#" style="width:100%" class="btn btn-primary">
-                  <h5 class="card-title">Card title</h5>
-                  <img class="card-img-top" src="{{asset('images/produit3.png')}}" alt="Card image cap"></a>
-                </div>
-                <div class="col-sm-3" style="margin-bottom: 50px;">
-                  <a href="#" style="width:100%" class="btn btn-primary">
-                  <h5 class="card-title">Card title</h5>
-                  <img class="card-img-top" src="{{asset('images/produit4.png')}}" alt="Card image cap"></a>
-                </div>
-
+                @endforeach
               </div>
             @if ($iPhone || $iPod || $iPad || $Android)
               @else
