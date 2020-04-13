@@ -482,3 +482,9 @@ body {
   #modal_img{
     padding: 0;
   }
+
+.small-image{
+  height: 50px;
+  width: auto;
+
+}

@@ -19,16 +19,13 @@
   </div>
 
   <div class="row" >
+  @foreach($collections as $collection)
     <div class="col-sm-6" style="margin-bottom: 50px;">
-      <a href="{{ route('forum.index') }}" class="btn btn-primary">
-      <h5 class="card-title">Categorie 1</h5>
+      <a href="{{ route('forum.categorie', $collection->categories_id) }}" class="btn btn-primary">
+      <h5 class="card-title">{{$collection->titre}}</h5>
       <img class="card-img-top" src="{{asset('images/produit.png')}}" alt="Card image cap"></a>
     </div>
-    <div class="col-sm-6" style="margin-bottom: 50px">
-      <a href="{{ route('forum.index') }}" class="btn btn-primary">
-      <h5 class="card-title">Categorie 2</h5>
-      <img class="card-img-top" src="{{asset('images/produit2.png')}}" alt="Card image cap"></a>
-    </div>
+  @endforeach
   </div>
 
   <div class="row" style="" >

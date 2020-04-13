@@ -1,18 +1,19 @@
-
-CREATE TABLE IF NOT EXISTS utilisateur
+CREATE TABLE IF NOT EXISTS users
 (
     id MEDIUMINT NOT NULL AUTO_INCREMENT,
-    pseudo VARCHAR(100),
+    name VARCHAR(100),
     email VARCHAR(255),
-    motdepasse VARCHAR(100),
+    password VARCHAR(100),
     img_profile VARCHAR(255),
     role_user VARCHAR(100),
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO utilisateur (pseudo, email, motdepasse, img_profile, role_user )
- VALUES ('Pseudo', 'pseudo@mail.fr', 'mdp' ,'/image/profile1.png', 'user' ),
- ('Root', 'chezmoitest@mail.fr', 'mdp' ,'/image/profile1.png', 'admin');
+INSERT INTO users (name, email, password, img_profile, role_user )
+ VALUES ('Pseudo', 'pseudo@mail.fr', 'mdpmdp000' ,'/images/profile1.png', 'user' ),
+ ('Root', 'chezmoitest@mail.fr', '$2y$10$0g/ygex7DV84KFxmh8vA1.1D/gBaAwqHQTBltyNaIvjYz3uiultku' ,'profile1.png', 'admin');
 
 CREATE TABLE IF NOT EXISTS commentaire
 (
@@ -35,29 +36,50 @@ CREATE TABLE IF NOT EXISTS articles
     couleur VARCHAR(100),
     taille VARCHAR(100),
     livraison VARCHAR(100),
+    categories VARCHAR(100),
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO articles (title, img_article, description_article, prix, materiel, marque, couleur, taille, livraison)
- VALUES ('Article titre', '/image_article/article.png', 'Description.............', '10', '100% coton', 'Tommy', 'Noir Blanc', '1m81', 'Colissimo/...'),
- ('Article 2', '/image_article/article2.png', 'Description.............', '20', 'BIO', 'MARQUE', 'COULEUR', 'TAILLE', 'LIVRAISON' ),
- ('Article 3', '/image_article/article3.png', 'Description.............', '30', '..', '..', '..', '...', '...' ),
- ('Costume', '/image_article/suit.png', 'Description.............', '30', '..', '..', '..', '...', '...' );
+INSERT INTO articles (title, img_article, description_article, prix, materiel, marque, couleur, taille, livraison, categories)
+ VALUES ('Article titre', '/image_article/article.png', 'Description.............', '10', 'Tissu', 'Tommy', 'Noir Blanc', '1m81', 'Colissimo/...', 'vetement'),
+('Style', '/image_article/sneakers.png', 'Description.............', '10', 'Tissu', 'Tommy', 'Noir Blanc', '1m81', 'Colissimo/...', 'chaussure'),
+ ('Ville', '/image_article/shoe.png', 'Description.............', '20', 'BIO', 'MARQUE', 'COULEUR', 'TAILLE', 'LIVRAISON', 'chaussure' ),
+ ('Sport', '/image_article/run.png', 'Description.............', '30', 'BIO', 'MARQUE', 'COULEUR', 'TAILLE', 'LIVRAISON', 'chaussure' ),
+ ('Article 3', '/image_article/article2.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'pantalon' ),
+ ('Article 3', '/image_article/article2.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'pantalon' ),
+ ('Costume', '/image_article/suit.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'accesoire' );
 
-
-CREATE TABLE categorie
+CREATE TABLE IF NOT EXISTS collection_articles
 (
-    id_categorie MEDIUMINT NOT NULL AUTO_INCREMENT,
-    title VARCHAR(255),
-    PRIMARY KEY (id_categorie)
+    id_collection MEDIUMINT NOT NULL AUTO_INCREMENT,
+    titre VARCHAR(100),
+    categories_id INT,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP,
+    PRIMARY KEY (id_collection)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO categorie (title)
+INSERT INTO collection_articles (titre, categories_id)
+    VALUES ('Collection 1', '2'),
+        ('Collection 2', '3');
+
+
+CREATE TABLE categories
+(
+    id MEDIUMINT NOT NULL AUTO_INCREMENT,
+    titre VARCHAR(100),
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO categories (titre)
  VALUES ('vetement'),
  ('pantalon'),
  ('chaussure'),
   ('accesoire');
-
 
 CREATE TABLE Lien
 (

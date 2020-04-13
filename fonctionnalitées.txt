@@ -9,12 +9,17 @@ page =  . index
         . show
 
 - inscrit :
-
         . index
         . collection
         . show => commentaire
         . profil => image + pseudo + email + mdp + adresse/ville/numero
         . ajouter article(s) au panier
+        . mettre des avis des likes
+        . commander un article
+
+
+
+
 
 - Admin :
     modifier bdd :

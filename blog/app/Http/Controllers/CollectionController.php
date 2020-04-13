@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Categorie;
 use DB;
 use Illuminate\Http\Request;
 use PDO;
@@ -31,9 +32,27 @@ class CollectionController extends Controller
     }
     public function show($id)
     {
-        //$article = Article::where('id', $slug);
-        //$article = DB::select('select * from article where id = ?', [$slug]);
-
         return view('forum.show', ['article' => Article::findOrFail($id)]);
     }
+
+    public function filtre($id)
+    {
+        $categorie = Categorie::findOrFail($id);
+        $forum = Article::All();
+
+        return view('forum.categorie', ['articles' => $forum], ['collection' => $categorie]);
+    }
+
+    public function collectionlist()
+    {
+        //$collections = Collection::All();
+
+        return view('article.collection');
+    }
+
+    public function edit($id)
+    {
+        return view('article.collectionEdit', $id);
+    }
+
 }

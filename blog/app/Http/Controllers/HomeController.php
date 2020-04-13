@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\collection;
+use App\CollectionArticle;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $collections = CollectionArticle::all();
+
+        return view('welcome', compact('collections'));
     }
 }

@@ -64,7 +64,6 @@
                 <img src="{{asset('images/' .Auth::user()->image)}}" style="background: #fff; border: 3px solid #f5f8fa; width: 40px; border-radius: 50%; height: 40px; margin-right: 10px">
             @else
             <a class="navbar-brand" href="{{ url('/home') }}" style="margin-right: -150px">
-            <img src="{{asset('images/profile.png')}}" style="background: #fff; border: 3px solid #f5f8fa; width: 5%; border-radius: 50%; height: 28%;">
             @endif 
             @endguest
             @endif
@@ -102,38 +101,29 @@
                     <li ><a class="nav-link" id="b" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     <li><a class="nav-link" id="b" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                   @else
-                     <span class="input-group-btn" style="padding: 5px; margin-right: 11px;">
+                    <span class="input-group-btn" style="padding: 5px; margin-right: 11px;">
                     <button onclick="window.location.href='/forum'"  class="btn btn-tc" type="button" ><i class="fa fa-star"></i> </button>
-                    <button onclick="window.location.href='/tag'"  class="btn btn-tc" type="button" ><i class="fa fa-question"></i></button>
                     <button onclick="window.location.href='/chat'" class="btn btn-tc" type="button" ><i class="fa fa-inbox"></i>   <span style="margin-right: 5px" class="badge">{{ $notif ?? '' }}</span></button>
                   </span>
+                  <li class="nav-item dropdown">
+                        @if ( Auth::user()->role_user == "admin")
+                            <a  class="nav-link " href="/admin" >
+                                Admin <span class="caret"></span>
+                            </a>
+
+                        @endif
+                    </li>
                         <li class="nav-item dropdown">
+                    
                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>  Menu <span class="caret"></span>
                              </a> 
-                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown"> 
-                               <a class="dropdown-item" href="{{ route('forum.create') }}" style="color: #444;">
-                                        {{ __('Creer un Article') }}
-                                </a> 
-                                <a class="dropdown-item" href="{{ route('tag.create') }}" style="color: #444;">
-                                        {{ __('Creer un Tag') }}
-                                </a> 
-                                <a class="dropdown-item" href="{{ route('chat.create') }}" style="color: #444;">
-                                        {{ __('Envoyer un Message') }}
-                                </a> 
-                                </div>
                             </li>
-
+                        
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile', Auth::user()->name ) }}" style="color: #444;">
-                                        {{ __('Profile') }}
-                                    </a>
-
-
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" style="color: #444;">
