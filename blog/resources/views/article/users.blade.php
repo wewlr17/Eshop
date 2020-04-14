@@ -3,9 +3,6 @@
 
 @section('content')
 
-Coucou liste des users pour l'admin
-
-
 <table class="table">
     <tr>
         <th>id</th>

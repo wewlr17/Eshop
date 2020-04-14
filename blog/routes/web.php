@@ -27,6 +27,8 @@ Route::get('/admin', 'DashboardController@index')->name('admin');
 Route::get('/article/adminlist', 'ArticlesController@adminlist')->name('article.adminlist');
 Route::get('/article/delete/{id}', 'ArticlesController@delete')->name('article.delete');
 Route::get('/admin/{id}/edit', 'ArticlesController@edit')->name('article.editer');
+Route::get('/article/add', 'ArticlesController@create')->name('article.add');
+Route::post('/article/store', 'ArticlesController@store')->name('article.store');
 Route::post('/admin/edit/{id}', 'ArticlesController@update')->name('article.update');
 
 Route::get('/user/userlist', 'UsersController@userlist')->name('users.userlist');
@@ -44,6 +46,7 @@ Route::post('/categorie/store', 'CategoriesController@store')->name('categorie.s
 Route::resource('/forum', 'CollectionController');
 Route::get('/forum/{slug}', 'CollectionController@index')->name('home');
 Route::get('/collection/collectionlist', 'CollectionController@collectionlist')->name('collection.collectionlist');
+Route::get('/collection/delete/{id}', 'CollectionController@delete')->name('collection.delete');
 Route::get('/collection/{id}/edit', 'CollectionController@edit')->name('collection.editer');
 
 Route::get('/collection/{id}', 'CollectionController@filtre')->name('forum.categorie'); 

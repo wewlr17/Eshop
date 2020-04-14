@@ -11,15 +11,20 @@ class ArticlesController extends Controller
 {
     public function __construct()
     {
-        $user = User::find(Auth::id());
-        if ($user == 'admin')
-            $this->middleware('auth');
+
+        // $user = User::find(Auth::id());
+        // if ($user->role_user == 'admin')
+        //$this->middleware('auth');
     }
 
     public function delete($id)
     {
+        if (!$this->isAdmin())
+            return redirect('home');
+
         $article = Article::find($id);
         $article->delete();
+
         return redirect('/article/adminlist')->withInfo('Article delete');
     }
 
@@ -32,13 +37,21 @@ class ArticlesController extends Controller
 
     public function adminlist()
     {
-        $articles = Article::All();
+        if (!$this->isAdmin())
+            return redirect('home');
 
+        $articles = Article::All();
         return view('article.adminlist', compact('articles'));
+
+        // if (Auth::check() && $user->role_user == 'admin') {  
+
     }
 
     public function update(Request $request, $id)
     {
+        if (!$this->isAdmin())
+            return redirect('home');
+
         $article = Article::find($id);
 
         $article->title = $request->input('title');
@@ -53,5 +66,42 @@ class ArticlesController extends Controller
         $article->save();
 
         return redirect('article/adminlist')->withInfo('Article mis à jour !');
+    }
+
+    public function create()
+    {
+        if (!$this->isAdmin())
+            return redirect('home');
+
+        return view('article.createArticle');
+    }
+
+    public function store(Request $request)
+    {        
+        $article = New Article;
+
+        $article->title = $request->title;
+        if ($request->file('input_img')) {
+            $file = $request->file('input_img');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $location = public_path('/images');
+            $file->move($location, $filename);
+            $user->img_profile = $filename;
+        }
+        $article->img_article = '/image_article' + $request->img_article;
+        $article->description_article = $request->description_article;
+        $article->prix = $request->prix;
+
+        $article->save();
+
+        return back()->withInfo('L article à été créé !');
+
+    }
+
+    public function isAdmin()
+    {
+        $user = Auth::user();
+        
+        return (Auth::check() && $user->role_user === 'admin');  
     }
 }

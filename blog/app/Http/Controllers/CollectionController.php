@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Categorie;
+use App\CollectionArticle;
 use DB;
 use Illuminate\Http\Request;
 use PDO;
@@ -45,14 +46,24 @@ class CollectionController extends Controller
 
     public function collectionlist()
     {
-        //$collections = Collection::All();
+        $collections = CollectionArticle::All();
 
-        return view('article.collection');
+        return view('article.collection', ['collections' => $collections]);
+    }
+ 
+    public function delete($id)
+    {
+        $collection = CollectionArticle::find($id);
+        $collection->delete();
+        return redirect('/collection/collectionlist')->withInfo('Collection delete');
     }
 
     public function edit($id)
     {
-        return view('article.collectionEdit', $id);
+        $collection = CollectionArticle::find($id);
+        $categorie = Categorie::findOrFail($id);
+
+        return view('article.collectionEdit', ['categorie' => $categorie], ['collection' => $collection]);
     }
 
 }

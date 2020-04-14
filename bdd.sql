@@ -53,12 +53,12 @@ INSERT INTO articles (title, img_article, description_article, prix, materiel, m
 
 CREATE TABLE IF NOT EXISTS collection_articles
 (
-    id_collection MEDIUMINT NOT NULL AUTO_INCREMENT,
+    id MEDIUMINT NOT NULL AUTO_INCREMENT,
     titre VARCHAR(100),
     categories_id INT,
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP,
-    PRIMARY KEY (id_collection)
+    PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO collection_articles (titre, categories_id)

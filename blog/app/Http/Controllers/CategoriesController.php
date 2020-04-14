@@ -9,6 +9,9 @@ class CategoriesController extends Controller
 {
     public function categorielist()
     {
+        if (!$this->isAdmin())
+            return redirect('home');
+
         $categories = Categorie::All();
 
         return view('article.categories', compact('categories'));
@@ -16,6 +19,9 @@ class CategoriesController extends Controller
 
     public function delete($id)
     {
+        if (!$this->isAdmin())
+            return redirect('home');
+
         $categorie = Categorie::find($id);
         $categorie->delete();
         return redirect('/article/categories')->withInfo('Categorie delete');
@@ -29,7 +35,10 @@ class CategoriesController extends Controller
     }
 
     public function update(Request $request, $id)
-    {        
+    {  
+        if (!$this->isAdmin())
+            return redirect('home');
+
         $categorie = Categorie::find($id);
         $categorie->titre = $request->input('titre');
 
@@ -40,12 +49,17 @@ class CategoriesController extends Controller
 
     public function create()
     {
-        return view('article.createCategorie');
+        if (!$this->isAdmin())
+            return redirect('home');
+
+            return view('article.createCategorie');
     }
 
-
     public function store(Request $request)
-    {        
+    {    
+        if (!$this->isAdmin())
+            return redirect('home');  
+  
         $categorie = New Categorie;
         $categorie->titre = $request->titre;
 
@@ -55,5 +69,11 @@ class CategoriesController extends Controller
 
     }
 
+    public function isAdmin()
+    {
+        $user = Auth::user();
+        
+        return (Auth::check() && $user->role_user === 'admin');  
+    }
 
 }

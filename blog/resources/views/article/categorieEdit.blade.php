@@ -30,7 +30,7 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
                <div class="row" style="" >
 
                 <div style="margin-left: 450px; margin-bottom: -150px">
-                <form action="{{route('collection.update', $id)}}" method="post">
+                <form action="{{route('categorie.update', $categorie->id)}}" method="post">
                     @csrf
 
                     <div class="form-group">

@@ -13,7 +13,7 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
 <div class="container animated fadeInLeft">
   <div class="jumbotron" id="tc_jumbotron">
         <div class="text-center"> 
-          <h1 style="color: white; margin-bottom: -60px; margin-top: -50px ;font-size: 2.5rem;"><br>Modifier la Categorie </h1> 
+          <h1 style="color: white; margin-bottom: -60px; margin-top: -50px ;font-size: 2.5rem;"><br>Creer un Article </h1> 
           <h2 style="color: white    ;font-size: 3.5rem;"><br></h2> 
         <p></p>  
           </div>
@@ -30,12 +30,34 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
                <div class="row" style="" >
 
                 <div style="margin-left: 450px; margin-bottom: -150px">
-                <form action="{{route('categorie.update', $id)}}" method="post">
+                <form action="{{route('article.store')}}" method="post">
                     @csrf
 
                     <div class="form-group">
-                        <p style="font-size: 1.0rem;">Categorie :  <p>    
-                        <input style="width: 100%" type="text" id="tc_input" class="form-control" name="titre" value="{{$categorie->titre}}"> 
+                        <p style="font-size: 1.0rem;">Titre :  <p>    
+                        <input style="width: 100%" type="text" id="tc_input" class="form-control" name="title" placeholder="Entrer le titre..."> 
+                    </div>
+                    <div class="" style="margin-bottom: 50px; width:100%; left: 0">
+                        <img class="card-img-top" style="width: 30%" src="{{asset('images/')}}" alt="Card image cap">
+                        <a style="margin-left: 35%;" data-toggle="collapse" data-target="#edit_image"><i class="fa fa-image" id="upload_image"></i></a>
+                    </div>
+                    <div id="edit_image" class="collapse">  
+                        <div class="bg">
+                            <div class="form-group">
+                              <input type="file" class="form-control" name="img_article" placeholder="input_img" style="background-color: #f5f8fa;"> 
+                            </div>
+                            </div>  
+                            @if (empty($article->img_article))
+                              <small><i class="fa fa-info-circle"></i>Veuillez à choisir une image</small>
+                            @endif
+                    </div>
+                    <div class="form-group">
+                        <p style="font-size: 1.0rem;">Description :  <p>    
+                        <input style="width: 100%" type="text" id="tc_input" class="form-control" name="description_article" placeholder="Entrer la description..."> 
+                    </div>
+                    <div class="form-group">
+                        <p style="font-size: 1.0rem;">Prix :  <p>    
+                        <input style="width: 100%" type="text" id="tc_input" class="form-control" name="prix" placeholder="Entrer le prix..."> 
                     </div>
 
                     <hr>

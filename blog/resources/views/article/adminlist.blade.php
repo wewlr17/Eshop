@@ -3,15 +3,17 @@
 
 @section('content')
 
-Coucou liste des article pour l'admin
-
-
 <table class="table">
     <tr>
         <th>id</th>
         <th>title</th>
         <th>image</th>
         <th>action</th>
+        <th>
+        <a href="{{route('article.add')}}">
+            <button type="button" class="btn btn-success" style="background-color: grey; width: 27%">+</button> 
+        </a>
+        <th>
     </tr>
 
 @foreach($articles as $article)
