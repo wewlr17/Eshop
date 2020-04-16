@@ -11,14 +11,6 @@
 |
 */
 
-// use App\Collection;
-
-// Route::get('/', function () {
-//     $collections = Collection::all();
-//     return view('welcome', compact('collections'));
-// });
-
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -49,9 +41,12 @@ Route::get('/collection/collectionlist', 'CollectionController@collectionlist')-
 Route::get('/collection/delete/{id}', 'CollectionController@delete')->name('collection.delete');
 Route::get('/collection/{id}/edit', 'CollectionController@edit')->name('collection.editer');
 
-Route::get('/collection/{id}', 'CollectionController@filtre')->name('forum.categorie'); 
+Route::get('/cart', 'CartsController@index')->name('cart');
+Route::get('/cart/check', 'CartsController@check')->name('cart.check');
+Route::post('/cart/check', 'CartsController@update')->name('cart.update');
+Route::get('/cart/mail', 'CartsController@mail')->name('cart.mail');
+Route::get('/cart/delete/{id}', 'CartsController@delete')->name('carts.delete');
+Route::get('/cart/alldelete/', 'CartsController@alldelete')->name('cart.alldelete');
+Route::get('/article/add/{id}', 'CartsController@add')->name('carts.add');
 
-
-// Route::get('/forum/collection') {
-//     return view('forum.categorie');
-// });
+Route::get('/collection/{id}', 'CollectionController@filtre')->name('forum.categorie');

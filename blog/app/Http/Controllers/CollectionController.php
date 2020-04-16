@@ -26,6 +26,8 @@ class CollectionController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    
     public function index()
     {
         $forum = Article::All();

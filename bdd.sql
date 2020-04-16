@@ -47,9 +47,13 @@ INSERT INTO articles (title, img_article, description_article, prix, materiel, m
 ('Style', '/image_article/sneakers.png', 'Description.............', '10', 'Tissu', 'Tommy', 'Noir Blanc', '1m81', 'Colissimo/...', 'chaussure'),
  ('Ville', '/image_article/shoe.png', 'Description.............', '20', 'BIO', 'MARQUE', 'COULEUR', 'TAILLE', 'LIVRAISON', 'chaussure' ),
  ('Sport', '/image_article/run.png', 'Description.............', '30', 'BIO', 'MARQUE', 'COULEUR', 'TAILLE', 'LIVRAISON', 'chaussure' ),
- ('Article 3', '/image_article/article2.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'pantalon' ),
- ('Article 3', '/image_article/article2.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'pantalon' ),
- ('Costume', '/image_article/suit.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'accesoire' );
+ ('Sweat', '/image_article/article2.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'vetement' ),
+ ('Sweat', '/image_article/article3.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'vetement' ),
+ ('Costume', '/image_article/suit.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'vetement' ),
+ ('Pantalon', '/image_article/fashion.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'pantalon' ),
+ ('Pantalon', '/image_article/jeans.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'pantalon' ),
+ ('Pantalon', '/image_article/pants.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'pantalon' ),
+ ('Pantalon', '/image_article/pants2.png', 'Description.............', '30', '..', '..', '..', '...', '...', 'pantalon' );
 
 CREATE TABLE IF NOT EXISTS collection_articles
 (
@@ -64,7 +68,6 @@ CREATE TABLE IF NOT EXISTS collection_articles
 INSERT INTO collection_articles (titre, categories_id)
     VALUES ('Collection 1', '2'),
         ('Collection 2', '3');
-
 
 CREATE TABLE categories
 (
@@ -81,23 +84,35 @@ INSERT INTO categories (titre)
  ('chaussure'),
   ('accesoire');
 
-CREATE TABLE Lien
-(
-    catergorie_id INT PRIMARY KEY NOT NULL,
-    article_id INT
-);
+-- CREATE TABLE Lien
+-- (
+--     catergorie_id INT PRIMARY KEY NOT NULL,
+--     article_id INT
+-- );
 
-CREATE TABLE panier
+CREATE TABLE IF NOT EXISTS shops
 (
-    panier_id INT PRIMARY KEY NOT NULL,
-    check_p boolean
-);
+    id MEDIUMINT NOT NULL AUTO_INCREMENT,
+    id_article INT,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP,
+    PRIMARY KEY (id)
+    -- check_p boolean,
+    -- titre VARCHAR(100),
+    -- description_article VARCHAR(100),
+    -- prix INT,
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE passage_panier_article
-(
-    panier_id INT,
-    article_id INT
-);
+INSERT INTO shops (id_article)
+ VALUES ('1'), 
+ ('2'), 
+ ('4');
+
+-- CREATE TABLE passage_panier_article
+-- (
+--     panier_id INT,
+--     article_id INT
+-- );
   
 
 

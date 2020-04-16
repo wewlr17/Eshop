@@ -21,10 +21,8 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
     </div>
     @if($iPhone || $iPod || $iPad || $Android)
     
-
             @else
             @endif
-
 
             @if ($iPhone || $iPod || $iPad || $Android)
             <div style="margin-top: -70px" class="container animated fadeInRight"> 
@@ -74,7 +72,7 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
                 </div> 
 
                 <div style="margin-right: -100px; margin-top: -150px; width: 80px" class="buttons">
-                  <button style="margin-left : -90px" class="blob-btn">
+                  <a href="{{route('carts.add', $article->id)}}"><button style="margin-left : -90px" class="blob-btn">
                     Ajouter
                     <span class="blob-btn__inner">
                       <span class="blob-btn__blobs">
@@ -84,7 +82,7 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
                         <span class="blob-btn__blob"></span>
                       </span>
                     </span>
-                  </button>
+                  </button></a>
                   <br/>
 
               </div>

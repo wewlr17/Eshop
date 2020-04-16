@@ -40,6 +40,10 @@
             
         }
 
+        .cart{
+            width: 40px;
+        }
+
     </style>
 
     <?php 
@@ -111,6 +115,14 @@
                                 Admin <span class="caret"></span>
                             </a>
 
+                        @endif
+                    </li>
+                    <li>
+                        @if ( Auth::check())
+                        <a href="/cart">
+                            <img class="cart" src="{{asset('images/cart_logo.png')}}"></img>
+                            <span class="cart"><i class="basketItems"></i></span>
+                        </a>
                         @endif
                     </li>
                         <li class="nav-item dropdown">
